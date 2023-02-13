@@ -70,8 +70,9 @@ function withDefault(value: string, defaultValue: string) {
 async function syncFiles(args: IActionArguments) {
   try {
     await core.group("Uploading files", async () => {
+      await exec.exec("ls",["-lah"])
       return await exec.exec(
-        "ls -lah; git ftp push",
+        "git ftp push",
         [
           "--force",
           "--auto-init",
