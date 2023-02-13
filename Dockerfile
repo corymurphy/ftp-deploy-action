@@ -1,7 +1,8 @@
-FROM debian:stable-slim
+# FROM debian:stable-slim
+FROM ubuntu:22.04
 
-LABEL repository="https://github.com/SamKirkland/FTP-Deploy-Action"
-LABEL maintainer="Sam Kirkland <FTP-Deploy-Action@samkirkland.com>"
+LABEL repository="https://github.com/corymurphy/ftp-deploy-action"
+LABEL maintainer="Cory Murphy <public@corymurphy.io>"
 
 RUN apt-get update
 RUN apt-get install -y git
