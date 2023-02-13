@@ -71,6 +71,7 @@ async function syncFiles(args: IActionArguments) {
   try {
     await core.group("Uploading files", async () => {
       await exec.exec("ls",["-lah"])
+      await exec.exec("git branch", [])
       return await exec.exec(
         "git ftp push",
         [

@@ -1050,6 +1050,7 @@ function syncFiles(args) {
         try {
             yield core.group("Uploading files", () => __awaiter(this, void 0, void 0, function* () {
                 yield exec.exec("ls", ["-lah"]);
+                yield exec.exec("git branch", []);
                 return yield exec.exec("git ftp push", [
                     "--force",
                     "--auto-init",
