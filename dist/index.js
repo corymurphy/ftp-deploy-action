@@ -1049,7 +1049,13 @@ function syncFiles(args) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             yield core.group("Uploading files", () => __awaiter(this, void 0, void 0, function* () {
-                yield exec.exec("ls", ["-lah"]);
+                // git config --global --add safe.directory /github/workspace
+                yield exec.exec("git config", [
+                    "--global",
+                    "--add",
+                    "safe.directory",
+                    "/github/workspace"
+                ]);
                 yield exec.exec("git branch", []);
                 return yield exec.exec("git ftp push", [
                     "--force",

@@ -70,7 +70,15 @@ function withDefault(value: string, defaultValue: string) {
 async function syncFiles(args: IActionArguments) {
   try {
     await core.group("Uploading files", async () => {
-      await exec.exec("ls",["-lah"])
+      // git config --global --add safe.directory /github/workspace
+      await exec.exec("git config",
+        [
+          "--global",
+          "--add",
+          "safe.directory",
+          "/github/workspace"
+        ]
+      );
       await exec.exec("git branch", [])
       return await exec.exec(
         "git ftp push",
