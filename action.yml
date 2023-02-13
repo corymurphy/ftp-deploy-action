@@ -17,7 +17,7 @@ inputs:
     required: false
   git-ftp-args:
     description: 'Passes through options into git-ftp'
-    default: 
+    default:
     required: false
 runs:
   using: 'docker'
